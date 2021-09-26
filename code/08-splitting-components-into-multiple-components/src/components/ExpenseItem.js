@@ -5,7 +5,7 @@ import './ExpenseItem.css';
 const ExpenseItem = (props) => {
   const [title, setTitle] = useState(props.title);
   const clickHandler = () => {
-    console.log('Clicked!!!');
+    console.log('Clicked!!! ' + props.date.getFullYear());
     setTitle(title + ' Updated!');
   };
 
