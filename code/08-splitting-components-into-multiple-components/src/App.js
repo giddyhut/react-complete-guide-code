@@ -32,6 +32,7 @@ const DUMMY_EXPENSES = [
 
 const App= () => {
   const[expenses, setExpenses] = useState(DUMMY_EXPENSES);
+  const[showToggle, setShowToggle] = useState(false);
 
   const addExpenseHandler = (expense) => {
     console.log("In App.js");
@@ -42,11 +43,19 @@ const App= () => {
       console.log(abc);
       return abc;
     });
+    //Hide form
+    setShowToggle(false);
+  };
+
+  const hideForm = (toggle) => {
+    console.log("Hide form due to cancellation");
+    //Hide form
+    setShowToggle(toggle);
   };
 
   return (
     <div>
-      <NewExpense onAddExpense={addExpenseHandler} />
+      <NewExpense onAddExpense={addExpenseHandler} showForm={showToggle} onToggle={hideForm} />
       <Expenses expensesList={expenses} />
     </div>
   );
